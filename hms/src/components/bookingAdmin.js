@@ -17,6 +17,7 @@ export const BookingAdmin = ({
   setroomPrice,
   setroomNo,
   updateRoomData,
+  setcapacity
 }) => {
   const [search, setsearch] = useState("");
   const [searchPrice, setsearchPrice] = useState("");
@@ -106,6 +107,7 @@ export const BookingAdmin = ({
                   <div class="card-body">
                     <h5 class="card-title">{`Room No. ${x.room_no}`}</h5>
                     <h6 class="card-text">{x.room_type}</h6>
+                    <h6 className="col-12 mt-2">{` ${x.capacity} people`}</h6>
 
                     <div className="row">
                       <button
@@ -163,7 +165,6 @@ export const BookingAdmin = ({
               ></button>
             </div>
             <div class="modal-body">
-              
               <div class="mb-3">
                 <input
                   type="number"
@@ -183,6 +184,17 @@ export const BookingAdmin = ({
                   aria-describedby="emailHelp"
                   placeholder="Room Class"
                   onChange={(e) => setroomType(e.target.value)}
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  placeholder="Capacity"
+                  onChange={(e) => setcapacity(e.target.value)}
                   required
                 />
               </div>

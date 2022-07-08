@@ -10,7 +10,9 @@ export const Dashboard = ({
   setupdatedphoneno,
   setupdatedname,
   setupdatedusername,
+  Fusername,
 }) => {
+  console.log(user);
   const { contact, customer_name, username, customer_id } = user;
 
   return (
@@ -18,21 +20,49 @@ export const Dashboard = ({
       <NavBar />
       <div className="container-dashboard row ">
         <div className="container fixed text-start mt-5 mx-5">
-          <h3>ID : {customer_id}</h3>
-          <h3>Name : {customer_name}</h3>
-          <h3>User-Name : {username}</h3>
-          <h3>Contact Number : {contact}</h3>
-          <button
-            type="button"
-            class="btn btn-outline-dark"
-            data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop"
-            // onClick={(e) => updateUserData(e)}
-          >
-            Edit Data
-          </button>
+          <div style={{ color: "Black", fontFamily: "fantasy" }}>
+            <h3>
+              <span style={{ color: "maroon", fontFamily: "fantasy" }}>
+                {" "}
+                ID{" "}
+              </span>
+              : {customer_id}
+            </h3>
+            <h3>
+              <span style={{ color: "maroon", fontFamily: "fantasy" }}>
+                Name
+              </span>
+              : {customer_name}
+            </h3>
+            <h3>
+              <span style={{ color: "maroon", fontFamily: "fantasy" }}>
+                User-Name
+              </span>
+              : {username}
+            </h3>
+            <h3>
+              <span style={{ color: "maroon", fontFamily: "fantasy" }}>
+                Contact-Number
+              </span>
+              : {contact}
+            </h3>
+            <button
+              type="button"
+              class="btn btn-outline-dark"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+              // onClick={(e) => updateUserData(e)}
+            >
+              Edit Data
+            </button>
+          </div>
 
-          <h1 className="text-center my-5">My Bookings</h1>
+          <h1
+            className="text-center my-5"
+            style={{ fontFamily: "Arial Black" }}
+          >
+            My Bookings
+          </h1>
           <div className="container row">
             <h6>
               <table class="table table-dark table-striped text-center">
@@ -41,8 +71,8 @@ export const Dashboard = ({
                     <th scope="col">Booking_ID</th>
                     <th scope="col">Room_No.</th>
                     <th scope="col">Booking_Date</th>
-                    <th scope="col">Check-In Date</th>
-                    <th scope="col">Check-Out Date</th>
+                    <th scope="col">Check-In Date (GMT)</th>
+                    <th scope="col">Check-Out Date (GMT)+</th>
                     <th scope="col">Cancel Booking</th>
                   </tr>
                 </thead>
@@ -128,17 +158,19 @@ export const Dashboard = ({
                 Please Logout and Login again with your updated credentials to
                 see the updated Changes ..............
               </div>
-              <div class="mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  placeholder="User-Name"
-                  onChange={(e) => setupdatedusername(e.target.value)}
-                  required
-                />
-              </div>
+              {Fusername === "Admin" ? null : (
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder="User-Name"
+                    onChange={(e) => setupdatedusername(e.target.value)}
+                    required
+                  />
+                </div>
+              )}
               <div class="mb-3">
                 <input
                   type="text"
@@ -163,7 +195,7 @@ export const Dashboard = ({
               </div>
               <div class="mb-3">
                 <input
-                  type="tel"
+                  type="number"
                   class="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
@@ -176,7 +208,7 @@ export const Dashboard = ({
             <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-primary"
+                class="btn btn-warning"
                 onClick={(e) => updateUserData(e)}
                 data-bs-dismiss="modal"
               >

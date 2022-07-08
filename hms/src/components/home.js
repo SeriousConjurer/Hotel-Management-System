@@ -11,6 +11,7 @@ import image5 from "../images/premium-plus.jpg";
 import image6 from "../images/premium.jpg";
 import image7 from "../images/single-ac.jpg";
 import image9 from "../images/double-non-ac.jpg";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   const settings = {
@@ -52,12 +53,13 @@ export const Home = () => {
 
   return (
     <>
+    
       <NavBar />
       <div
         id="carouselExampleControlsNoTouching"
         className="carousel slide carousel-fade "
         data-bs-touch="false"
-        data-bs-interval="false"
+        data-bs-interval="1000"
       >
         <div className="carousel-inner">
           <div className="carousel-item active">
@@ -95,17 +97,16 @@ export const Home = () => {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-      {/* ****************************************** */}
-      {/* ****************************************** */}
-      {/* ****************************************** */}
-
-      <div >
-        <h1 className="text-warning pt-5 px-5 py-2 text-center">
+      {/* *************************************************************************************** */}
+      {/* *************************************************************************************** */}
+      {/* *************************************************************************************** */}
+      <div>
+        <h1 className="text-warning pt-5 mt-5 px-5 py-2 text-center">
           Our Heritage
         </h1>
         <hr width="100px" className="mx-auto" />
         <div className="py-1"></div>
-        <h6 className="text-dark px-5 text-center">
+        <p className="text-center col-md-8 m-auto  lead">
           India is a delightful destination to visit, offering a plethora of
           travel experiences. Stretching from the mighty peaks of the Himalayas
           in the north to the tropical beaches in the south, India’s expansive
@@ -119,42 +120,40 @@ export const Home = () => {
           wildlife, such as elephants, lions, and tigers. Here’s my roundup of
           the 10 most amazing hotels in India, where you can stay in lavish
           luxury.
-        </h6>
+        </p>
         <div className="py-5"></div>
       </div>
-
       {/* ****************************************** */}
       {/* ****************************************** */}
-
       <h1 className="text-center my-5 text-warning"> ACCOMMODATIONS </h1>
       <Slider {...settings} className=" mx-5">
         <div className="card p-3" style={{ width: "18rem" }}>
           <img src={image4} className="card-img-top" alt="..." />
           <div className="card-body">
-            <h5 className="card-title">Royal Suite</h5>
-            <p className="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+            <h5 className="card-title ">Royal Suite</h5>
+            <p className="lead-md">
+              Provides an ingenious blend of luxury and private living, whilst
+              featuring the full range of first-class hotel services
             </p>
           </div>
         </div>
         <div className="card p-3" style={{ width: "18rem" }}>
           <img src={image5} className="card-img-top" alt="..." />
           <div className="card-body">
-            <h5 className="card-title">Luxury Suite</h5>
-            <p className="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+            <h5 className="card-title ">Luxury Suite</h5>
+            <p className="lead-md">
+              Offers an elegant, stylish and super luxurious interior in the
+              best location of the hotel related to view and privacy together.
             </p>
           </div>
         </div>
         <div className="card p-3" style={{ width: "18rem" }}>
           <img src={image6} className="card-img-top" alt="..." />
           <div className="card-body">
-            <h5 className="card-title">Super Delux Suite</h5>
-            <p className="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+            <h5 className="card-title ">Super Delux Suite</h5>
+            <p className="lead-md">
+              Super Deluxe suite is the first “true suite” in the suite types
+              list, because it offers separated living area and sleeping area.
             </p>
           </div>
         </div>
@@ -162,10 +161,10 @@ export const Home = () => {
           <img src={image7} className="card-img-top" alt="..." />
 
           <div className="card-body">
-            <h5 className="card-title">Delux Suite</h5>
-            <p className="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+            <h5 className="card-title ">Delux Suite</h5>
+            <p className="lead-md">
+              Offers an elegant, stylish and super luxurious interior in the
+              best location of the hotel related to view and privacy together.
             </p>
           </div>
         </div>
@@ -173,14 +172,44 @@ export const Home = () => {
         <div className="card p-3" style={{ width: "18rem" }}>
           <img src={image9} className="card-img-top" alt="..." />
           <div className="card-body">
-            <h5 className="card-title">Premier Suite</h5>
-            <p className="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+            <h5 className="card-title ">Premier Suite</h5>
+            <p className="lead-md">
+              Provides an ingenious blend of luxury and private living, whilst
+              featuring the full range of first-class hotel services
             </p>
           </div>
         </div>
       </Slider>
+      <footer class="pt-5 mt-5">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item">
+            <Link to="/home" class="nav-link px-2 text-muted">
+              Home
+            </Link>
+          </li>
+          <li class="nav-item">
+            <Link to="/dashboard" class="nav-link px-2 text-muted">
+              DashBoard
+            </Link>
+          </li>
+          <li class="nav-item">
+            <Link to="/booking" class="nav-link px-2 text-muted">
+              Booking
+            </Link>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">
+              FAQs
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">
+              About
+            </a>
+          </li>
+        </ul>
+        <p class="text-center text-muted">© Made By - Himanshu Yadav</p>
+      </footer>
     </>
   );
 };

@@ -34,6 +34,7 @@ function App() {
   const [roomPrice, setroomPrice] = useState("");
   const [roomNo, setroomNo] = useState("");
   const [food, setfood] = useState("");
+  const [capacity, setcapacity] = useState("");
 
   const navigate = useNavigate();
 
@@ -51,37 +52,50 @@ function App() {
       password === "" ||
       name === "" ||
       phoneno === "" ||
-      food === ""
+      food === "" ||
+      phoneno.length !== 10
     ) {
       alert("Please Completely Fill the Information .....");
       return;
     }
-
-    Axios.post("http://localhost:3001/register", {
+    Axios.post("http://localhost:3001/validateregister", {
       username: username,
-      password: password,
-      name: name,
-      phoneno: phoneno,
-      food: food,
     }).then((response) => {
-      //   console.log(response);
-      alert("Registration Successfull , login withyour credentials ......... ");
-      setFusername(username);
-      setFpassword(password);
-      setid(response.data.customer_id);
-      setuser(response.data);
-    });
-    Axios.post("http://localhost:3001/getUserData", {
-      username: Fusername,
-      password: Fpassword,
-    }).then((response) => {
-      console.log("D");
-      console.log(response.data[0]);
-      setuser(response.data[0]);
-    });
-    Axios.post("http://localhost:3001/getRoomData", {}).then((response) => {
       console.log(response);
-      setroom(response.data);
+      if (response.data.length) {
+        alert(
+          "User with this user-name already exists , use any other user-name ....."
+        );
+        return;
+      }
+      Axios.post("http://localhost:3001/register", {
+        username: username,
+        password: password,
+        name: name,
+        phoneno: phoneno,
+        food: food,
+      }).then((response) => {
+        console.log(response);
+        alert(
+          "Registration Successfull , login with your credentials ......... "
+        );
+        setFusername(username);
+        setFpassword(password);
+        setid(response.data.customer_id);
+        setuser(response.data);
+      });
+      Axios.post("http://localhost:3001/getUserData", {
+        username: Fusername,
+        password: Fpassword,
+      }).then((response) => {
+        console.log("D");
+        console.log(response.data[0]);
+        setuser(response.data[0]);
+      });
+      Axios.post("http://localhost:3001/getRoomData", {}).then((response) => {
+        console.log(response);
+        setroom(response.data);
+      });
     });
   };
   useEffect(() => {
@@ -110,7 +124,7 @@ function App() {
     }).then((response) => {
       //   console.log(response);
       if (response.data.message) {
-        setloginValid(response.data.message);
+        alert("Wrong Username / password");
       } else {
         setFusername(usernamelog);
         setFpassword(passwordlog);
@@ -166,11 +180,13 @@ function App() {
       usernamelog: usernamelog,
       food: food,
     }).then((response) => {
-      //   console.log(response);
+      console.log("A");
+      console.log(response);
       if (response.data.message) {
         alert(response.data.message);
       } else {
         setFusername(usernamelog);
+        setFpassword(response.data[0].pasword);
         setid(parseInt(response.data[0].customer_id));
         setuser(response.data[0]);
         navigate("home");
@@ -271,9 +287,10 @@ function App() {
       updatedname === "" ||
       updatedpassword === "" ||
       updatedusername === "" ||
-      updatedphoneno === ""
+      updatedphoneno === "" ||
+      updatedphoneno.length !== 10
     ) {
-      alert("Please completely fill the information ......");
+      alert("Please completely fill the form with valid information ......");
       return;
     }
     Axios.post(`http://localhost:3001/updateUserData`, {
@@ -297,6 +314,7 @@ function App() {
       room_no: roomNo,
       room_type: roomType,
       room_price: roomPrice,
+      capacity: capacity,
     }).then((response) => {
       console.log(response.data);
 
@@ -349,6 +367,7 @@ function App() {
                   setroomPrice={setroomPrice}
                   setroomNo={setroomNo}
                   updateRoomData={updateRoomData}
+                  setcapacity={setcapacity}
                 />
               )
             }
@@ -366,6 +385,7 @@ function App() {
                 setupdatedname={setupdatedname}
                 setupdatedusername={setupdatedusername}
                 updateUserData={updateUserData}
+                Fusername={Fusername}
               />
             }
           ></Route>

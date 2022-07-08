@@ -15,11 +15,13 @@ export const Booking = ({ room, bookingRoom, setcheckin, setcheckout }) => {
   return (
     <>
       <NavBar />
-      <img src={image} alt="" className="w-100 h-90 booking-image" />
+      <div className="bg">
+        <img src={image} alt="" className="w-100 h-90 booking-image " />
+      </div>
 
       <div className="container-booking">
         <div className="row sticky-top">
-          <form class=" col-3 sticky-top mb-5">
+          <form class=" col-6 sticky-top">
             <input
               class="form-control me-2"
               type="search"
@@ -28,23 +30,26 @@ export const Booking = ({ room, bookingRoom, setcheckin, setcheckout }) => {
               onChange={(e) => setsearch(e.target.value)}
             />
           </form>
-          <form class=" mt-1 col-3 sticky-top mb-5">
-            <h6>
+          <form className=" mt-1 col-6 sticky-top">
+            <h6
+              style={{ color: "maroon", fontFamily: "fantasy" }}
+            >
               {`Rs.  ${searchPrice}`}
               <input
                 type="range"
                 name="price"
                 min="0"
                 max="10000"
-                className="mx-3 "
+                className="form-range"
+                id="customRange1"
                 onChange={(e) => setsearchPrice(e.target.value)}
               ></input>
             </h6>
           </form>
 
-          <form class=" col-3 sticky-top mb-5">
-            <h6>
-              {`From  `}
+          <form class=" col-6 sticky-top mb-5">
+            <h6 style={{ color: "maroon", fontFamily: "fantasy" }}>
+              {`Check-In`}
               <input
                 class="form-control me-2"
                 type="date"
@@ -54,9 +59,9 @@ export const Booking = ({ room, bookingRoom, setcheckin, setcheckout }) => {
             </h6>
           </form>
 
-          <form class=" col-3 sticky-top ">
-            <h6>
-              {`To  `}
+          <form class=" col-6 sticky-top mb-5">
+            <h6 style={{ color: "maroon", fontFamily: "fantasy" }}>
+              {`Check-out`}
               <input
                 class="form-control me-2"
                 type="date"
@@ -67,8 +72,7 @@ export const Booking = ({ room, bookingRoom, setcheckin, setcheckout }) => {
           </form>
         </div>
 
-        <div className="row container mx-auto me-5 ">
-          <div className="my-5"></div>
+        <div className="row container mx-auto">
           {room
             .filter((val) => {
               return (
@@ -90,13 +94,14 @@ export const Booking = ({ room, bookingRoom, setcheckin, setcheckout }) => {
 
               return (
                 <div
-                  class="card col-4 mx-1 g-3 sticky-top "
-                  style={{ width: "18rem" }}
+                  class="card col-4 mx-1 g-3 sticky-top"
+                  style={{ width: "18rem", position: "sticky", top: "10rem" }}
                 >
                   <img src={i} class="card-img-fluid pt-1" alt="..." />
                   <div class="card-body">
                     <h5 class="card-title">{`Room No. ${x.room_no}`}</h5>
                     <h6 class="card-text">{x.room_type}</h6>
+                    <h6 className="col-12 mt-2">{` ${x.capacity} people`}</h6>
 
                     <div className="row">
                       <button

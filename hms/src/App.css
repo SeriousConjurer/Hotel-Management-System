@@ -1,15 +1,29 @@
+.bg {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+}
+.bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}
+
+
+
 .carousel-item img{
     max-height: 100vh;
 }
 
-
-nav :hover{
-    background-color: rgb(255, 244, 190);
-    
-    color: rgb(188, 165, 72)! important;
-
-    transition:  1000ms;
-
+nav{
+    color: maroon;
 }
 
 
@@ -17,40 +31,25 @@ nav :hover{
     background-image: url("./images/premium-plus.jpg");
     background-color: black;
 }
-.container-register{
-    width: 50%;
-    height: 100vh;
-    background-color: rgba(255, 255, 255, 0.461);
-    padding: 50px;
-    border-radius: 5px;
-    backdrop-filter: blur(1px);
-    border: 2px solid transparent;
-    background-clip: padding-box;
-    box-shadow: 1px 10px 10px rgb(66, 66, 66, 0.0.3);
-    line-height: 1.5;
-    text-align: center;
-    display: grid;position: fixed;
-    z-index: 1;
-    left: 30%;
-}
+
 .container-booking{
       width: 90%;
-    height: 100vh;
-    background-color: rgba(255, 255, 255, 0.461);
-    padding: 50px;
-    border-radius: 5px;
-    backdrop-filter: blur(1px);
-    border: 2px solid transparent;
-    background-clip: padding-box;
-    box-shadow: 1px 10px 10px rgb(66, 66, 66, 0.0.3);
-    line-height: 1.5;
-    text-align: center;
-    display: grid;
-    position: absolute;
-    overflow-y: auto;
-    top: 10%;
-    left: 5%;
-}
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.461);
+        padding: 50px;
+        border-radius: 5px;
+        backdrop-filter: blur(1px);
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        box-shadow: 1px 10px 10px rgb(66, 66, 66, 0.0.3);
+        line-height: 1.5;
+        text-align: center;
+        display: grid;
+        position: absolute;
+        overflow-y: auto;
+        top: 10%;
+        left: 5%;
+    }
 h6{
     font-family: Georgia, serif;
     font-size: 20px;
@@ -89,4 +88,83 @@ h6{
     position: fixed;
     top: 0;
     
+}
+
+.navbar{
+    background: rgba(255, 235, 134, 0.598);
+}
+
+@media only screen and (max-width: 2500px){
+    .container-register{
+        position: sticky;
+        left: 10%;
+        max-width: 40rem;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.461);
+        padding: 50px;
+        border-radius: 5px;
+        backdrop-filter: blur(1px);
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        box-shadow: 1px 10px 10px rgb(66, 66, 66, 0.0.3);
+        line-height: 1.5;
+        text-align: center;
+        z-index: 1;
+        
+    }
+}
+
+@media only screen and (max-width: 1200px){
+    .container-register{
+        position: sticky;
+        left: 10%;
+        max-width: 40rem;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.461);
+        padding: 50px;
+        border-radius: 5px;
+        backdrop-filter: blur(1px);
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        box-shadow: 1px 10px 10px rgb(66, 66, 66, 0.0.3);
+        line-height: 1.5;
+        text-align: center;
+        z-index: 1;
+    }
+}
+@media only screen and (max-width: 600px){
+	.container-register{
+        position: sticky;
+        left: 10%;
+        max-width: 40rem;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.461);
+        padding: 50px;
+        border-radius: 5px;
+        backdrop-filter: blur(1px);
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        box-shadow: 1px 10px 10px rgb(66, 66, 66, 0.0.3);
+        line-height: 1.5;
+        text-align: center;
+        z-index: 1;
+    }
+}
+@media only screen and (max-width: 425px){
+	.container-register{
+        position: sticky;
+        left: 10%;
+        max-width: 40rem;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.461);
+        padding: 50px;
+        border-radius: 5px;
+        backdrop-filter: blur(1px);
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        box-shadow: 1px 10px 10px rgb(66, 66, 66, 0.0.3);
+        line-height: 1.5;
+        text-align: center;
+        z-index: 1;
+    }
 }

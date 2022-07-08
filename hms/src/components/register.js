@@ -17,8 +17,8 @@ export const Register = ({
 }) => {
   return (
     <>
-      <div className="container-register">
-        <div className=" mx-auto register">
+      <div className="container-register mx-auto ">
+        <div className="register">
           <h1 className="text-center text-secondary mx-auto">Welcome !!!</h1>
           <h3 className="text-center text-dark mb-2">
             Dont't have an account , register below :
@@ -67,7 +67,7 @@ export const Register = ({
             </div>
             <div class="col-12 ">
               <input
-                type="tel"
+                type="number"
                 class="form-control"
                 id="inputPassword2"
                 placeholder="Phone Number"
@@ -229,8 +229,9 @@ export const Register = ({
         {/* *************************************************************************** */}
         {/* *************************************************************************** */}
       </div>
-
-      <img className="image-fluid w-100" src={image} alt="" />
+      <div className="bg">
+        <img className="image-fluid w-100 " src={image} alt="" />
+      </div>
     </>
   );
 };

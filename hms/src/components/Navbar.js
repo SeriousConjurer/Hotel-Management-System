@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 export const NavBar = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark text-end fixed-top">
-        <div className=" container-fluid py-2 text-white">
+      <nav className="navbar navbar-expand-lg fixed-top">
+        <div className=" container-fluid">
           <h1 className=" px-4 ">Paradise Hotel</h1>
           <button
             className="navbar-toggler "
@@ -17,7 +17,12 @@ export const NavBar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon "></span>
+            <span className="navbar-toggler-icon">
+              <i
+                class="fas fa-bars"
+                style={{ color: "black", fontSize: "28px" }}
+              ></i>
+            </span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto ">
@@ -26,7 +31,7 @@ export const NavBar = () => {
                   to="/home"
                   style={{
                     textDecoration: "none",
-                    color: "#ffffff",
+                    color: "maroon",
                   }}
                 >
                   <h5> Home </h5>
@@ -37,7 +42,7 @@ export const NavBar = () => {
                   to="/booking"
                   style={{
                     textDecoration: "none",
-                    color: "#ffffff",
+                    color: "maroon",
                   }}
                 >
                   <h5> Booking </h5>
@@ -48,7 +53,7 @@ export const NavBar = () => {
                   to="/dashboard"
                   style={{
                     textDecoration: "none",
-                    color: "#ffffff",
+                    color: "maroon",
                   }}
                 >
                   <h5> Dashboard </h5>
@@ -59,7 +64,7 @@ export const NavBar = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    color: "#ffffff",
+                    color: "maroon",
                   }}
                 >
                   <h5> Logout </h5>
